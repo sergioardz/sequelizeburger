@@ -20,6 +20,17 @@ module.exports = function (app) {
             });
     });
 
+    app.put("/api/burgers/:id", function(req, res) {
+        db.Burger.update({
+            devoured: true
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbBurger) {
+            res.json(dbBurger);
+        });
+    });
 };
 
 
