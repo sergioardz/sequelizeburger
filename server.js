@@ -1,5 +1,7 @@
 var express = require("express");
 
+var db = require("./models");
+
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -17,13 +19,14 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgers_controller.js");
-
-app.use(routes);
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("The magic is happening on: http://localhost:" + PORT);
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    // Log (server-side) when our server has started
+    console.log("The magic is happening on: http://localhost:" + PORT);
+  });
 });
