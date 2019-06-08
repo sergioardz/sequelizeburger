@@ -24,7 +24,7 @@ app.set("view engine", "handlebars");
 require("./routes/api-routes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: true}).then(function() {
   app.listen(PORT, function() {
     // Log (server-side) when our server has started
     console.log("The magic is happening on: http://localhost:" + PORT);

@@ -41,7 +41,7 @@ body {
 } 
 
 
-#open, #button {
+#open, #minicont, #button {
     float: left;
 }
 
@@ -65,8 +65,13 @@ body {
     border: 1px solid darkcyan;
 }
 
+#minicont {
+    padding-left: 6px;
+}
+
 #button {
-    padding: 6px;
+    padding-left: 6px;
+    padding-top: 2px;
     font-size: 6px;
 }
 
@@ -97,5 +102,13 @@ p {
     padding: 2px;
     height: 25px;
     width: 60px;
+}
+
+#cust {
+    width: 80px;
+}
+
+::placeholder {
+    color:lightgray;
 }
 
