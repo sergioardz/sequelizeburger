@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Agu4c4t3",
+    "password": "root",
     "database": "sequelizeburger",
     "host": "127.0.0.1",
     "dialect": "mysql"

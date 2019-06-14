@@ -15,9 +15,6 @@
                     {{id}}. {{burger_name}}
                 </div>
                 <div id="minicont">
-                    <div>
-                        <input placeholder="First Name" name="customer" id="cust" maxlength="12" type="text">
-                    </div>
                     <div id="button">
                         <button class="change-devoured" data-id="{{id}}">Devour it!</button>
                     </div>
@@ -31,14 +28,14 @@
             {{#each burgers}}
             {{#if devoured}}
             <div id="close">
-                {{id}}. {{burger_name}} (Eaten by....)
+                {{id}}. {{burger_name}}
             </div>
             {{/if}}
             {{/each}}
         </div>
     </div>
     <div id="form">
-        <form class="create-form">
+        <form class="create-form" method="POST" action="/api/burgers">
             <div class="form-group">
                 <input placeholder="Bring in a new one!" type="text" id="burger" name="burger_name" maxlength="255">
             </div>
